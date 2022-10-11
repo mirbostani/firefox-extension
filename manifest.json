@@ -1,0 +1,43 @@
+{
+    "description": "Bookmark LinkedIn job ads",
+    "manifest_version": 2,
+    "name": "jobmarker",
+    "version": "0.1.1",
+    "homepage_url": "https://github.com/mirbostani/jobmarker-firefox",
+    "icons": {
+        "48": "src/icons/icon-48.png",
+        "96": "src/icons/icon-96.png"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "cookies",
+        "webNavigation",
+        "webRequest",
+        "tabs",
+        "*://www.linkedin.com/*",
+        "<all_urls>"
+    ],
+    "sidebar_action": {
+        "default_icon": "src/icons/icon-32.png",
+        "default_title": "JobMarker",
+        "default_panel": "src/sidebar/panel.html"
+    },
+    "commands": {
+        "_execute_sidebar_action": {
+            "suggested_key": {
+                "default": "Ctrl+Alt+J"
+            }
+        }
+    },
+    "web_accessible_resources": ["src/icons/*.png"],
+    "background": {
+        "scripts": ["src/sidebar/panel.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.linkedin.com/*", "<all_urls>"],
+            "js": ["src/content_scripts/jobmarker.js"]
+        }
+    ]
+}
