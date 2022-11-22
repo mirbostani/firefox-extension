@@ -1,4 +1,4 @@
-# JobMarker - FireFox Extension
+# FireFox Extension
 
 ## Licenses
 
